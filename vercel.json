@@ -22,5 +22,6 @@
         }
       ]
     }
-  ]
+  ],
+  "ignoreCommand": "exit 0"
 }
