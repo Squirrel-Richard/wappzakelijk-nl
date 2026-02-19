@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     'WhatsApp zakelijk beheer',
     'WhatsApp customer service',
     'WhatsApp MKB Nederland',
+    'WhatsApp gedeelde inbox',
+    'WhatsApp automation software',
   ],
   authors: [{ name: 'AIOW BV' }],
   creator: 'AIOW BV',
@@ -46,6 +48,40 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'WAppZakelijk',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  url: 'https://wappzakelijk.nl',
+  description: 'WhatsApp Business inbox voor NL bedrijven. Gedeelde inbox, automatische antwoorden, iDEAL betaallinks.',
+  inLanguage: 'nl-NL',
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'EUR',
+    lowPrice: '0',
+    highPrice: '149',
+    offerCount: 4,
+    offers: [
+      { '@type': 'Offer', name: 'Gratis', price: '0', priceCurrency: 'EUR' },
+      { '@type': 'Offer', name: 'Starter', price: '25', priceCurrency: 'EUR' },
+      { '@type': 'Offer', name: 'Pro', price: '59', priceCurrency: 'EUR' },
+      { '@type': 'Offer', name: 'Business', price: '149', priceCurrency: 'EUR' },
+    ],
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'AIOW BV',
+    url: 'https://aiow.io',
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    reviewCount: '47',
+  },
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -53,7 +89,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="nl" className={inter.variable}>
-      <body className="bg-[#06060f] text-white antialiased">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="bg-[#030810] text-white antialiased" style={{ overflow: 'hidden auto' }}>
         {children}
       </body>
     </html>

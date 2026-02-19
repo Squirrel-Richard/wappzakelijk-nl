@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #06060f;
-  --foreground: #ffffff;
+  --background: #030810;
+  --foreground: #dde8f5;
   --green: #25d366;
   --green-dark: #128c7e;
 }
@@ -13,31 +13,35 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
 
 /* Glassmorphism utilities */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-dark {
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 /* Breathing animation */
@@ -52,7 +56,7 @@ body {
 
 /* Glow */
 .glow-green {
-  box-shadow: 0 0 30px rgba(37, 211, 102, 0.3), 0 0 60px rgba(37, 211, 102, 0.1);
+  box-shadow: 0 0 30px rgba(37, 211, 102, 0.25), 0 0 60px rgba(37, 211, 102, 0.08);
 }
 
 /* Gradient text */
@@ -63,14 +67,33 @@ body {
   background-clip: text;
 }
 
+/* Button reset — prevent browser default backgrounds */
+button {
+  background: transparent;
+}
+
 /* Selection */
 ::selection {
-  background: rgba(37, 211, 102, 0.3);
+  background: rgba(37, 211, 102, 0.25);
   color: white;
 }
 
 /* Focus ring */
 *:focus-visible {
-  outline: 2px solid rgba(37, 211, 102, 0.6);
+  outline: 2px solid rgba(37, 211, 102, 0.5);
   outline-offset: 2px;
+}
+
+/* Mobile grid override for stats */
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Hide demo sidebar on small screens */
+@media (max-width: 600px) {
+  .demo-sidebar {
+    display: none !important;
+  }
 }
