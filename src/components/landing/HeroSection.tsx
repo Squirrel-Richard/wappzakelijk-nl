@@ -31,7 +31,7 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, type: 'spring', stiffness: 200, damping: 25 }}
-        className="text-5xl md:text-7xl lg:text-8xl font-black text-center max-w-5xl leading-[0.9] tracking-tight"
+        className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-center max-w-5xl leading-[0.95] tracking-tight"
       >
         <span className="text-white">WhatsApp</span>
         <br />
@@ -106,7 +106,7 @@ export function HeroSection() {
           {/* Dashboard preview */}
           <div className="flex h-64 md:h-80">
             {/* Sidebar */}
-            <div className="w-56 border-r border-white/10 p-4 flex flex-col gap-2">
+            <div className="hidden sm:flex sm:w-56 border-r border-white/10 p-4 flex-col gap-2">
               <div className="text-xs text-white/30 uppercase tracking-widest mb-2">Gesprekken</div>
               {[
                 { naam: 'Kapper Jan', msg: 'Wanneer kan ik...', unread: 2 },
