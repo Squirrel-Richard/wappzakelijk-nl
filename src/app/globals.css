@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #06060f;
+  --foreground: #ffffff;
+  --green: #25d366;
+  --green-dark: #128c7e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Breathing animation */
+@keyframes breathe {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* Glow */
+.glow-green {
+  box-shadow: 0 0 30px rgba(37, 211, 102, 0.3), 0 0 60px rgba(37, 211, 102, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #25d366, #128c7e, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Selection */
+::selection {
+  background: rgba(37, 211, 102, 0.3);
+  color: white;
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid rgba(37, 211, 102, 0.6);
+  outline-offset: 2px;
+}

@@ -1,0 +1,26 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/robots"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/webhook/whatsapp",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    }
+  ]
+}
